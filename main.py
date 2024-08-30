@@ -38,11 +38,14 @@ while True
 	r = pixel[0]
 	g = pixel[1]
 	b = pixel[2]
-	if r > 307200*20 and g > 307200:
+	if r > 1.2*b and g > 1.2*b:
 		right()
-	elif r > 307200*20:
+	elif r > 1.2*g and r > 1.2*b:
 		backwards()
-	elif g > 307200*20:
+	elif g > 1.2*r and g > 1.2*b:
 		forwards()
-	elif b > 307200*20:
+	elif b > 1.1*r and b > 1.1g:
 		left()
+	else:
+		right_motor.value = None
+		left_motor.value = None
