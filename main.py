@@ -7,14 +7,14 @@ def left():
 
 def forwards():
 	left_motor.min()
-	right_motor.min()
+	right_motor.max()
 
 def right():
 	left_motor.min()
 	right_motor.min()
 
 def backwards():
-	left_motor.min()
+	left_motor.max()
 	right_motor.min()
 
 left_motor = Servo(25)
