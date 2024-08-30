@@ -29,14 +29,15 @@ picam2.start()
 
 while True
 	array = picam2.capture_array()
-	r = 0
-	g = 0
-	b = 0
+	pixel = [0, 0, 0, 0]
+	column = [[0]*4]*640
 	for x in range(480):
-		for y in range(640):
-			r += array[x][y][0]
-			g += array[x][y][1]
-			b += array[x][y][2]
+		column += array[x]
+	for y in range(640):
+		pixel += column[y]
+	r = pixel[0]
+	g = pixel[1]
+	b = pixel[2]
 	if r > 307200*20 and g > 307200:
 		right()
 	elif r > 307200*20:
